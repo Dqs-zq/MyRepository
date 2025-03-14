@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>874</width>
+    <height>739</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>俄罗斯方块</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="res.qrc">
+    <normaloff>:/images/tetrixIcon.png</normaloff>:/images/tetrixIcon.png</iconset>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">*{
+    border-style:double;	
+	border-color: rgb(170, 255, 127);
+	border-width:4px;
+	color: rgb(255, 255, 255);
+	border-radius:10px;
+	padding:4px;
+	min-height:50px;
+
+}
+QFrame#frameBg{	
+	background-color: rgb(222, 156, 83);
+}
+QLabel{
+	border-width:0px;
+}
+QLabel#labelNextPiece{
+	border-width:2px;
+}
+TetrixBoard#frameTetrixBoard{	
+	background-image: url(:/images/tetrixbg.png);
+	padding:0px;
+	
+	font: 18pt &quot;黑体&quot;;
+}
+QPushButton{
+	border-width:1px;
+	font: 75 16pt &quot;Microsoft JhengHei&quot;;
+}
+QPushButton:hover{
+	border-width:1px;
+	font: 25 18pt &quot;Microsoft YaHei&quot;;
+}
+QPushButton:pressed{
+	padding-left:6px;
+	padding-top:6px;
+	font: 75 16pt &quot;Microsoft JhengHei&quot;;
+}</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QFrame" name="frameBg">
+      <property name="minimumSize">
+       <size>
+        <width>300</width>
+        <height>66</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="2">
+        <widget class="QLabel" name="label_3">
+         <property name="text">
+          <string>分数</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="label">
+         <property name="text">
+          <string>下一个</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="2">
+        <widget class="QLCDNumber" name="lcdLevel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>66</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="9" column="0">
+        <widget class="QPushButton" name="pbExit">
+         <property name="text">
+          <string>退出</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="2">
+        <widget class="QLabel" name="label_4">
+         <property name="text">
+          <string>速度</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" rowspan="12">
+        <widget class="TetrixBoard" name="frameTetrixBoard">
+         <property name="minimumSize">
+          <size>
+           <width>480</width>
+           <height>66</height>
+          </size>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="0">
+        <widget class="QPushButton" name="pbPause">
+         <property name="text">
+          <string>暂停</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="2">
+        <widget class="QLabel" name="label_5">
+         <property name="text">
+          <string>已消除的行数</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLCDNumber" name="lcdScore">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>66</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="7" column="0">
+        <widget class="QPushButton" name="pbStart">
+         <property name="text">
+          <string>开始</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2">
+        <widget class="QLCDNumber" name="lcdRemoved">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>66</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0" rowspan="2">
+        <widget class="QLabel" name="labelNextPiece">
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>TetrixBoard</class>
+   <extends>QFrame</extends>
+   <header location="global">tetrixboard.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="res.qrc"/>
+ </resources>
+ <connections>
+  <connection>
+   <sender>pbExit</sender>
+   <signal>clicked()</signal>
+   <receiver>MainWindow</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>113</x>
+     <y>630</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>436</x>
+     <y>402</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
